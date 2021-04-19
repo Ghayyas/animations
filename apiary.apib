@@ -1,0 +1,331 @@
+FORMAT: 1A
+HOST: https://polls.apiblueprint.org/
+
+# Ghayyas Mubashir
+
+Polls is a simple API allowing consumers to view polls and vote in them.
+
+## Go Instant
+
+### signup [POST]
+API :  api/check-user
+
+Method: POST
+
++ Request 
+
+        [
+            {
+             name: string;
+             email: string;
+             password: string;
+             mobile_number: string;
+             image_url: string;
+             role: string;
+            }
+        ]
+
++ Response 200 (application/json)
+
+        [
+            {
+               "message": "User Exist"
+            }
+        ]
+
+### Login [POST]
+  
+    API : api/login
+   Method: POST
+
+
++ Request (application/json)
+
+        {
+            "token": string,
+            "role": string
+        }
+
++ Response 201 (application/json)
+
+  
+    + Body
+
+            {
+                "token": "",
+                 "user": {
+                 "active": 1,
+                 "created_at": "2021-02-22 05:41:35",
+                 "email": "jkllk@jkk.com",
+                 "id": 226,
+                 "language": "en",
+                 "meta": null,
+                 "mobile_number": "+923032414548",
+                 "mobile_verified": 1,
+                 "name": "hjjj",
+                 "notification": {
+                 "customer": "80bd56ba-4b39-448f-936d-291d8ed78bad"
+                 },
+                 "remember_token": null,
+                 "updated_at": "2021-02-22 13:34:01"},
+                 }
+            }
+            
+            
+### Cart Category: [GET]
+  
+    API : api/settings
+   Method: GET  
+
+
++ Request HEADER (application/json)
+
+        {
+            "Authorization": Bearer klklkl
+        }
+
++ Response 201 (application/json)
+
+ 
+         [ 0: 
+          {
+          id: 1, 
+          key: "currency_code", 
+          value: "ZAR", 
+          type: "string"
+          },
+          1: {
+          id: 2, 
+          key: "currency_icon", 
+          value: "R", 
+          type: "string"
+          }, 
+          2: 
+          {
+          id: 3, 
+          key: "tax_in_percent", 
+          value: "10", 
+          type: "string"
+          },
+          3: {
+          id: 4, 
+          key: "support_email", 
+          value: "info@goinstants.co.za", 
+          type: "string"
+          }, 
+          4: {
+          id: 5, 
+          key: "support_phone", 
+          value: "0870955499", 
+          type: "string"
+          } 
+          5: {
+          id: 6, 
+          key: "delivery_fee", 
+          value: "15", 
+          type: "string"
+          } 
+          6: {
+          id: 7, 
+          key: "delivery_fee_set_by", 
+          value: "admin", 
+          type: "string"
+          }, 
+          7: {
+          id: 8, 
+          key: "delivery_fee_per_km_charge", 
+          value: "5", 
+          type: "string"
+          },
+          8: {
+          id: 9, 
+          key: "distance_metric", 
+          value: "KM", 
+          type: "string"}
+          9: {
+          id: 10, 
+          key: "refer_amount", 
+          value: "50", 
+          type: "string"
+          }, 
+          10: {
+          id: 11, 
+          key: "delivery_distance", 
+          value: "9999999999", 
+          type: "string"
+          }, 
+          11: {
+          id: 12, 
+          key: "privacy_policy",
+          type: "string"
+          value: "Privacy Policy\r\nThis privacy policy has been compiled to better serve those who are concerned with how their 'Personally Identifiable Information' (PII) is being used online. PII, as described in privacy law and information security, is an information that can be used on its own or with other information to identify, contact, or locate a single person, or to identify an individual in context. Please read our privacy policy carefully to get a clear understanding of how we collect, use, protect or otherwise handle your Personally Identifiable Information in accordance with our website. What personal information do we collect from the people that visit our blog, website or app? When ordering or registering on our site, as appropriate, you may be asked to enter your name, email address or other details to help you with your experience. When do we collect information? We collect information from you when you register on our site or enter information on our site.\r\n\r\nHow do we use your information?\r\nWe may use the information we collect from you when you register, make a purchase, respond to a survey or marketing communication, surf the website, or use certain other site features in the following ways:\r\n* To personalize your experience and to allow us to deliver the type of content and product offerings in which you are most interested.\r\n* To improve our website in order to better serve you.\r\n* To quickly process your transactions.\r\nHow do we protect your information?\r\nWe do not use vulnerability scanning and/or scanning to PCI standards. We use regular Malware Scanning. Your personal information is contained behind secured networks and is only accessible by a limited number of persons who have special access rights to such systems, and are required to keep the information confidential. In addition, all sensitive/credit information you supply is encrypted via Secure Socket Layer (SSL) technology. We implement a variety of security measures when a user enters, submits, or accesses their information to maintain the safety of your personal information.\r\nDo we use 'cookies'?\r\nYes. Cookies are small files that a site or its service provider transfers to your computer's hard drive through your Web browser (if you allow) that enables the site's or service provider's systems to recognize your browser and capture and remember certain information. They are also used to help us understand your preferences based on previous or current site activity, which enables us to provide you with improved services. We also use cookies to help us compile aggregate data about site traffic and site interaction so that we can offer better site experiences and tools in the future.\r\nWe use cookies to:\r\nUnderstand and save user's preferences for future visits. Compile aggregate data about site traffic and site interactions in order to offer better site experiences and tools in the future. We may also use trusted third-party services that track this information on our behalf. You can choose to have your computer warn you each time a cookie is being sent, or you can choose to turn off all cookies. You do this through your browser settings. Since browser is a little different, look at your browser's Help Menu to learn the correct way to modify your cookies.\r\nIf users disable cookies in their browser:\r\nIf you turn cookies off, Some of the features that make your site experience more efficient may not function properly.Some of the features that make your site experience more efficient and may not function properly.\r\nThird-party disclosure\r\nWe do not sell, trade, or otherwise transfer to outside parties your Personally Identifiable Information unless we provide users with advance notice. This does not include website hosting partners and other parties who assist us in operating our website, conducting our business, or serving our users, so long as those parties agree to keep this information confidential. We may also release information when it's release is appropriate to comply with the law, enforce our site policies, or protect ours or others' rights, property or safety.\r\nThird-party links\r\nWe do not include or offer third-party products or services on our website. If at any time you would like to unsubscribe from receiving future emails, you can email us at info@goinstants.co.za and we will promptly remove you from ALL correspondence. If there are any questions regarding this privacy policy, you may contact us. Tell : 087 095 5499 Email : info@goinstants.co.za"
+          }, 
+          } 
+          12: {
+          id: 13
+          key: "about_us"
+          type: "string"
+           value: "Goinstant is a zero commission food delivery company \r\nFor more information contact us at,Tell : 087 095 5499 Email : info@goinstants.co.za"
+        },
+          13: {
+          id: 14, 
+          key: "terms",
+          type: "string",
+          value: "These General Terms shall apply to all relations between GoInstant and the User related to the use of the GoInstant Food Platform (as defined below) as well as certain aspects of Sales Agreements and Delivery Agreements concluded through the GoInstant Food Platform (as defined below). By signing up in the GoInstant Food Platform, the User agrees to the application and content of these General Terms and is informed about the processing of his/her personal data disclosed during registration and use of the GoInstant Food Platform on the conditions set out in these General Terms.\r\n\r\n\r\nLEGAL FRAMEWORK\r\n\r\n\r\nBy operating the GoInstant Food Platform, GoInstant acts as the agent for the Partners in relation to mediation of Sales Agreements between the Partners and the Clients. GoInstant also acts as the agent for the Couriers in relation to mediation of Delivery Agreements between the Couriers and the Clients. As the agent GoInstant has been authorised by each Partner and each Courier to receive payments from the Clients on behalf of the respective principal and allocate the received funds between the Partners and the Couriers\r\n\r\n* The GoInstant Food Platform enables the Client to order Goods from Partners and arrange the delivery of the Orders to the Drop-Off Location\r\n* For the sale of Goods through the GoInstant Food Platform a Sales Agreement is concluded directly between the Client and the Partner. For the delivery of the Order, the Client enters into a Delivery Agreement directly with the Courier. The Sales Agreement and the Delivery Agreement are deemed to be concluded from the moment that the Order is confirmed on the GoInstant Food Platform. .\r\n* By operating the GoInstant Food Platform and the Marketplace, GoInstant acts only as a provider of the information society service and is neither a party to the Sales Agreement or the Delivery Agreement. GoInstant is not the manufacturer or seller of the Goods or provider of the delivery services and is not liable in any way for the performance of the Sales Agreement or the Delivery Agreement.\r\nORDERING GOODS THROUGH GOINSTANT FOOD PLATFORM\r\nThe Client can select and order Goods through the GoInstant Food Platform. In the event that the Partner cannot provide the Goods as requested in the Order, the Partner will not confirm the Order in the GoInstant Food Platform. The Partner may contact the Client in order to agree on changes to the Order, so that the initial Goods Price would remain the same. If no agreement is reached or if the Client would have to pay more or less for the replacement Goods than the ordered Goods, the Order will be cancelled and the Client will not be charged for the Order or (where applicable) the Order Price will be returned to the Client in full.\r\n\r\nThe Client has a right to receive Goods which comply with their description set out in the GoInstant Food Platform and any specific requirements (if agreed upon). In case the Goods contain food and in case of doubt regarding any allergies that the Client may have to any such Goods, the Client is to contact the Partner for further information.\r\n\r\nORDERING DELIVERY THROUGH BOLT FOOD PLATFORM\r\nby placing an order on Goinstant the Client will enter into the Delivery Agreement with the Courier through the Goinstant Food Platform. The Client and the Courier may agree on a different Drop-Off Location, provided that the new address is close to the original Drop-Off Location (not more than a few blocks away). you may contact us. Tell : 087 095 5499 Email : info@goinstants.co.za"
+
+          }, 
+          14: {
+          id: 15, 
+          key: "admin_commision_type", 
+          value: "Rand", 
+          type: "string"
+          }, 
+          15: {
+          id: 16, 
+          key: "admin_commision_value", 
+          value: "15", 
+          type: "string"
+          }] 
+            
+API :  /api/categories?pagination=0&parent=1
+
+Method: POST
+
++ Request 
+
+       " Authorization": Bearer asdfsdf
+       
+       
++ Query params: pagination:0,parent:1
+
+
++ Response 200 (application/json)
+
+       [
+       0:{
+       
+            id: 1
+            mediaurls: {images: [{default: "https://admin.goinstants.co.za/storage/130/goi1.png",…}]}
+            images: [{default: "https://admin.goinstants.co.za/storage/130/goi1.png",…}]
+            0: {default: "https://admin.goinstants.co.za/storage/130/goi1.png",…}
+            default: "https://admin.goinstants.co.za/storage/130/goi1.png"
+            thumb: "https://admin.goinstants.co.za/storage/130/conversions/goi1-thumb.jpg"
+            meta: {scope: "ecommerce"}
+            scope: "ecommerce"
+            parent_id: null
+            slug: "lite-food"
+            sort_order: 1
+            title: "lite food"
+            title_translations: {en: "lite food"}
+            en: "lite food"   
+          
+        },
+        1: {
+            id: 5
+            mediaurls: {images: [{default: "https://admin.goinstants.co.za/storage/143/goi5.png",…}]}
+            images: [{default: "https://admin.goinstants.co.za/storage/143/goi5.png",…}]
+            0: {default: "https://admin.goinstants.co.za/storage/143/goi5.png",…}
+            meta: {scope: "ecommerce"}
+            scope: "ecommerce"
+            parent_id: null
+            slug: "healthy"
+            sort_order: 1
+            title: "vegan"
+            title_translations: {en: "vegan"}
+            en: "vegan"
+            
+        },
+        2: {
+            id: 6
+            mediaurls: {images: [{default: "https://admin.goinstants.co.za/storage/144/goi7.png",…}]}
+            images: [{default: "https://admin.goinstants.co.za/storage/144/goi7.png",…}]
+            0: {default: "https://admin.goinstants.co.za/storage/144/goi7.png",…}
+            default: "https://admin.goinstants.co.za/storage/144/goi7.png"
+            thumb: "https://admin.goinstants.co.za/storage/144/conversions/goi7-thumb.jpg"
+            meta: {scope: "ecommerce"}
+            scope: "ecommerce"
+            parent_id: null
+            slug: "groceries"
+            sort_order: 1
+            title: "grocery"
+            title_translations: {en: "grocery"}
+            en: "grocery"
+            },
+        3: {
+            id: 2,
+            mediaurls: {images: [{default: "https://admin.goinstants.co.za/storage/136/goi2.png",…}]}
+            images: [{default: "https://admin.goinstants.co.za/storage/136/goi2.png",…}]
+            meta: {scope: "ecommerce"}
+            scope: "ecommerce"
+            parent_id: null
+            slug: "fast-food"
+            sort_order: 2
+            title: "burgers"
+            title_translations: {en: "burgers"}
+            en: "burgers"
+            },
+        4: {id: 3
+            mediaurls: {images: [{default: "https://admin.goinstants.co.za/storage/133/goi3.png",…}]}
+            images: [{default: "https://admin.goinstants.co.za/storage/133/goi3.png",…}]
+         
+            0: {
+                default: "https://admin.goinstants.co.za/storage/133/goi3.png",
+                thumb: "https://admin.goinstants.co.za/storage/133/conversions/goi3-thumb.jpg"
+                }
+            meta: {scope: "ecommerce"}
+            parent_id: null
+            slug: "dessert"
+            sort_order: 3
+            title: "Dessert"
+            title_translations: {en: "Dessert"},
+            
+            5: {id: 4
+            mediaurls: {images: [{default: "https://admin.goinstants.co.za/storage/141/goi4.png",…}]}
+            images: [{default: "https://admin.goinstants.co.za/storage/141/goi4.png",…}]
+            0: {default: "https://admin.goinstants.co.za/storage/141/goi4.png",…}
+            meta: {scope: "ecommerce"}
+            parent_id: null
+            slug: "drinks"
+            sort_order: 4
+            title: "Drinks"
+            title_translations: {en: "Drinks"}
+]
+
+          
+          
+          
+### Address [GET]
+  
+    API :/api/addresses
+    Method: GET
+
+
++ Request HEADER (application/json)
+
+        {
+           Authorization: Bearer eysdf
+
+        }
+
++ Response 201 (application/json)
+
+  
+    + Body
+
+           [0: 
+                   {
+                    address1: null,
+                    address2: null,
+                    city: null, 
+                    country: null, 
+                    formatted_address: "J-408, Block 18 Gulistan-e-Johar, Karachi, Karachi City, Sindh, Pakistan",
+                    id: 50,
+                    latitude: 24.9093764,
+                    longitude: 67.1246078,
+                    meta: null,
+                    postcode: null,
+                    state: null,
+                    title: "Home",
+                    user_id: 226
+                   }
+            ]
