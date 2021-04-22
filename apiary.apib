@@ -329,3 +329,291 @@ Method: POST
                     user_id: 226
                    }
             ]
+            
+### api/vendors/list?category=5&lat=24.9093764&long=67.1246078 [GET]
+  
+    API :api/vendors/list?category=5&lat=24.9093764&long=67.1246078
+    Method: GET
+
+
++ Request HEADER (application/json)
+
+        {
+           Authorization: Bearer eysdf
+
+        }
+    Query params:
+    
+      {
+         category: 5
+         lat: 24.9093764
+         long: 67.1246078
+      }
+
++ Response 201 (application/json)
+
+  
+    + Body
+    {
+    
+           data: [
+              {
+            address: "486, Anton Lembede Street, Durban Central, Durban, Durban Metro"
+            area: null
+            categories: [
+            {
+                id: 1
+                mediaurls: {
+                default: "https://admin.goinstants.co.za/storage/130/goi1.png"
+                thumb: "https://admin.goinstants.co.za/storage/130/conversions/goi1-thumb.jpg"
+                meta: {scope: "ecommerce"}
+                scope: "ecommerce"
+                parent_id: null
+                slug: "lite-food"
+                sort_order: 1
+                title: "lite food"
+                title_translations: {en: "lite food"}
+            
+            }
+            
+            ]
+            created_at: "2021-02-28T09:24:58.000000Z"
+            delivery_fee: 0
+            details: ""
+            favourite_count: 0
+            id: 8
+            is_favourite: false
+            is_verified: 1
+            latitude: -29.860632
+            longitude: 31.0166306
+            mediaurls: {images: [{default: "https://admin.goinstants.co.za/storage/236/1614840741655.jpeg"}]}
+            images: [{default: "https://admin.goinstants.co.za/storage/236/1614840741655.jpeg"}]
+            0: {default: "https://admin.goinstants.co.za/storage/236/1614840741655.jpeg"}
+            default: "https://admin.goinstants.co.za/storage/236/1614840741655.jpeg"
+            meta: {opening_time: "2021-03-04T06:50:03.467+02:00", closing_time: "2021-03-04T12:52:03.469+02:00"}
+            closing_time: "2021-03-04T12:52:03.469+02:00"
+            opening_time: "2021-03-04T06:50:03.467+02:00"
+            minimum_order: 0
+            name: "KFC"
+            product_categories: [{
+            id: 1
+            mediaurls: {
+            default: "https://admin.goinstants.co.za/storage/130/goi1.png"
+            thumb: "https://admin.goinstants.co.za/storage/130/conversions/goi1-thumb.jpg"
+            meta: {scope: "ecommerce"}
+            scope: "ecommerce"
+            parent_id: null
+            slug: "lite-food"
+            sort_order: 1
+            title: "lite food"
+            title_translations: {en: "lite food"}
+            }],
+            ratings: 0
+            ratings_count: 0
+            tagline: ""
+            updated_at: "2021-03-04T06:53:19.000000Z"
+            user: {
+            active: 1
+                created_at: "2021-02-28 09:24:58"
+                email: "manager1@demo.com"
+                id: 247
+                language: "en"
+                meta: null
+                mobile_number: "+919876543212"
+                mobile_verified: 1
+                name: "shop"
+                notification: {
+                vendor: "a42485fe-fc6d-4dcd-a324-59f7ec487755"
+                },
+                remember_token: null
+                updated_at: "2021-03-17 17:16:28",
+            user_id: 247,
+            links: {
+            first: "http://admin.goinstants.co.za/api/vendors/list?page=1"
+            last: "http://admin.goinstants.co.za/api/vendors/list?page=1"
+            next: null
+            prev: null
+            meta: {
+            current_page: 1
+            from: 1
+            last_page: 1
+            path: "http://admin.goinstants.co.za/api/vendors/list"
+            per_page: 15
+            to: 2
+            total: 2
+    
+      }    
+      
+      
+### api/coupons [GET]
+  
+    API :api/coupons
+    Method: GET
+
+
++ Request HEADER (application/json)
+
+        {
+           Authorization: Bearer eysdf
+
+        }
+
++ Response 201 (application/json)
+
+  
+    + Body
+         {
+         
+            []
+         }
+
+
+### api/coupons [GET]
+  
+    API :api/coupons
+    Method: GET
+
+
++ Request HEADER (application/json)
+
+        {
+           Authorization: Bearer eysdf
+
+        }
+
++ Response 201 (application/json)
+
+  
+    + Body
+         {
+         
+            []
+         }
+
+### api/products?category=1&vendor=8&page=1 []
+  
+    API :/api/products?category=1&vendor=8&page=1
+    Method: GET
+
+
++ Request HEADER (application/json)
+
+        {
+           Authorization: Bearer eysdf
+
+        }
+        
++ Query Params
+
+        {
+        
+            category: 1
+            vendor: 8
+            page: 1
+        
+        }
+
++ Response 201 (application/json)
+
+  
+    + Body
+         {
+         
+            data: [
+                {
+                
+                addon_groups: []
+                attribute_term_id: null
+                categories: [{
+                id: 1
+                mediaurls: {images: [{
+                default: "https://admin.goinstants.co.za/storage/130/goi1.png"
+                thumb: "https://admin.goinstants.co.za/storage/130/conversions/goi1-thumb.jpg"
+                }]},
+                meta: {scope: "ecommerce"}
+                parent_id: null
+                slug: "lite-food"
+                sort_order: 1
+                title: "lite food"
+                title_translations: {en: "lite food"}
+                
+                }],
+                created_at: "2021-03-04T06:56:18.000000Z"
+                detail: "empty_detail"
+                favourite_count: 0
+                id: 5
+                is_favourite: false
+                mediaurls: {images: [{default: "https://admin.goinstants.co.za/storage/237/1614840937113.jpeg"}]}
+                meta: {food_type: "veg"}
+                owner: "vendor"
+                parent_id: null
+                price: 29.9
+                ratings: 0
+                ratings_count: 0
+                title: "Street wise 2"
+                updated_at: "2021-03-04T07:16:31.000000Z"
+                vendor_products: [{
+                id: 5
+                price: 29.9
+                product_id: 5
+                sale_price: null
+                sale_price_from: null
+                sale_price_to: null
+                sells_count: 40
+                stock_low_threshold: 0
+                stock_quantity: 30
+                vendor: {
+                address: "486, Anton Lembede Street, Durban Central, Durban, Durban Metro"
+                area: null
+                categories: [{id: 1, slug: "lite-food", title: "lite food", title_translations: {en: "lite food"},…},…]
+                created_at: "2021-02-28T09:24:58.000000Z"
+                delivery_fee: 0
+                details: ""
+                favourite_count: 0
+                id: 8
+                is_favourite: false
+                is_verified: 1
+                latitude: -29.860632
+                longitude: 31.0166306
+                mediaurls: {images: [{default: "https://admin.goinstants.co.za/storage/236/1614840741655.jpeg"}]}
+                meta: {opening_time: "2021-03-04T06:50:03.467+02:00", closing_time: "2021-03-04T12:52:03.469+02:00"}
+                minimum_order: 0
+                name: "KFC"
+                product_categories: [{
+                id: 1
+                mediaurls: {images: [{
+                default: "https://admin.goinstants.co.za/storage/130/goi1.png"
+                thumb: "https://admin.goinstants.co.za/storage/130/conversions/goi1-thumb.jpg"
+                
+                }]}
+                meta: {scope: "ecommerce"}
+                parent_id: null
+                slug: "lite-food"
+                sort_order: 1
+                title: "lite food"
+                title_translations: {en: "lite food"}
+                
+                },…]
+                ratings: 0
+                ratings_count: 0
+                tagline: ""
+                updated_at: "2021-03-04T06:53:19.000000Z"
+                user: {
+                active: 1
+                created_at: "2021-02-28 09:24:58"
+                email: "manager1@demo.com"
+                id: 247
+                language: "en"
+                meta: null
+                mobile_number: "+919876543212"
+                mobile_verified: 1
+                name: "shop"
+                notification: {vendor: "a42485fe-fc6d-4dcd-a324-59f7ec487755"}
+                remember_token: null
+                updated_at: "2021-03-17 17:16:28"
+                user_id: 247
+                }
+                vendor_id: 8
+                }]
+                }
+         }
