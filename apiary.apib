@@ -7,6 +7,66 @@ Polls is a simple API allowing consumers to view polls and vote in them.
 
 ## Go Instant
 
+### Update Address [put]
+API :  https://lalag.pk/ezyfood/api/v1/addresses/{id}
+
+Method: put
+
++ Request 
+
+        [
+            {
+                formatted_address: "J-408, Block 18 Gulistan-e-Johar, Karachi, Karachi City, Sindh, Pakistan"
+                id: -1
+                latitude: "24.9093694"
+                longitude: "67.1246137"
+                title: "Home"
+            }
+        ]
+
++ Response 200 (application/json)
+
+        [
+            {
+                id: number;
+                user_id: number;
+                title: string;
+                formatted_address: string;
+                latitude: string;
+                longitude: string;
+            }
+        ]
+        
+### ADD Address [post]
+API :  api/v1/addresses
+
+Method: Post
+
++ Request 
+
+        [
+            {
+                formatted_address: "J-408, Block 18 Gulistan-e-Johar, Karachi, Karachi City, Sindh, Pakistan"
+                id: -1
+                latitude: "24.9093694"
+                longitude: "67.1246137"
+                title: "Home"
+            }
+        ]
+
++ Response 200 (application/json)
+
+        [
+            {
+                id: number;
+                user_id: number;
+                title: string;
+                formatted_address: string;
+                latitude: string;
+                longitude: string;
+            }
+        ]
+
 ### signup [POST]
 API :  api/check-user
 
@@ -359,80 +419,45 @@ Method: POST
            data: [
               {
             address: "486, Anton Lembede Street, Durban Central, Durban, Durban Metro"
-            area: null
-            categories: [
-            {
-                id: 1
-                mediaurls: {
-                default: "https://admin.goinstants.co.za/storage/130/goi1.png"
-                thumb: "https://admin.goinstants.co.za/storage/130/conversions/goi1-thumb.jpg"
-                meta: {scope: "ecommerce"}
-                scope: "ecommerce"
-                parent_id: null
-                slug: "lite-food"
-                sort_order: 1
-                title: "lite food"
-                title_translations: {en: "lite food"}
-            
-            }
-            
-            ]
-            created_at: "2021-02-28T09:24:58.000000Z"
-            delivery_fee: 0
-            details: ""
-            favourite_count: 0
-            id: 8
+            area: null,
+            name:,
+            categories_text:string,
+            distance_toshow: 10001 km,
+            id:number,
+            created_at: "2021-02-10T18:13:11.000000Z"
+            delivery_fee: 0,
+            favourite_count: 1
+            image: "https://admin.goinstants.co.za/storage/260/1612980842794.jpeg"
             is_favourite: false
             is_verified: 1
-            latitude: -29.860632
-            longitude: 31.0166306
-            mediaurls: {images: [{default: "https://admin.goinstants.co.za/storage/236/1614840741655.jpeg"}]}
-            images: [{default: "https://admin.goinstants.co.za/storage/236/1614840741655.jpeg"}]
-            0: {default: "https://admin.goinstants.co.za/storage/236/1614840741655.jpeg"}
-            default: "https://admin.goinstants.co.za/storage/236/1614840741655.jpeg"
-            meta: {opening_time: "2021-03-04T06:50:03.467+02:00", closing_time: "2021-03-04T12:52:03.469+02:00"}
-            closing_time: "2021-03-04T12:52:03.469+02:00"
-            opening_time: "2021-03-04T06:50:03.467+02:00"
-            minimum_order: 0
-            name: "KFC"
-            product_categories: [{
+            latitude: -29.860701
+            longitude: 31.0166238,
+            ratings: 5
+            ratings_count: 1,
+            updated_at: "2021-03-17T16:12:00.000000Z",
+            user_id: 29,
+            product_categories:[
             id: 1
-            mediaurls: {
-            default: "https://admin.goinstants.co.za/storage/130/goi1.png"
-            thumb: "https://admin.goinstants.co.za/storage/130/conversions/goi1-thumb.jpg"
+            mediaurls: {images: [{
+            
+            
+                default: "https://admin.goinstants.co.za/storage/130/goi1.png"
+                thumb: "https://admin.goinstants.co.za/storage/130/conversions/goi1-thumb.jpg"
+            }]}
             meta: {scope: "ecommerce"}
-            scope: "ecommerce"
             parent_id: null
             slug: "lite-food"
             sort_order: 1
             title: "lite food"
             title_translations: {en: "lite food"}
-            }],
-            ratings: 0
-            ratings_count: 0
-            tagline: ""
-            updated_at: "2021-03-04T06:53:19.000000Z"
-            user: {
-            active: 1
-                created_at: "2021-02-28 09:24:58"
-                email: "manager1@demo.com"
-                id: 247
-                language: "en"
-                meta: null
-                mobile_number: "+919876543212"
-                mobile_verified: 1
-                name: "shop"
-                notification: {
-                vendor: "a42485fe-fc6d-4dcd-a324-59f7ec487755"
-                },
-                remember_token: null
-                updated_at: "2021-03-17 17:16:28",
-            user_id: 247,
+            ],
+            },
             links: {
             first: "http://admin.goinstants.co.za/api/vendors/list?page=1"
             last: "http://admin.goinstants.co.za/api/vendors/list?page=1"
             next: null
             prev: null
+            },
             meta: {
             current_page: 1
             from: 1
@@ -487,8 +512,65 @@ Method: POST
     + Body
          {
          
-            []
+            [{
+                id:any,
+                title: string,
+                detail:string,
+                code:any
+            }]
          }
+         
+
+### api/vendors/ratings/3?page=1 [GET]
+  
+    API :api/coupons
+    Method: GET
+
+
++ Request HEADER (application/json)
+
+        {
+           Authorization: Bearer eysdf
+
+        }
++ Request Query {
+
+        page:1
+
+}
+
++ Response 201 (application/json)
+
+  
+    + Body
+         {
+         
+           data: [{
+           created_at: "2021-02-14T12:09:55.000000Z"
+            id: 31
+            rating: 5
+            review: "good"
+           }],
+           
+           links: {
+           first: "http://admin.goinstants.co.za/api/vendors/ratings/3?page=1"
+            last: "http://admin.goinstants.co.za/api/vendors/ratings/3?page=1"
+            next: null
+            prev: null
+           },
+           
+           
+           meta: {
+           current_page: 1
+            from: 1
+            last_page: 1
+            path: "http://admin.goinstants.co.za/api/vendors/ratings/3"
+            per_page: 15
+            to: 1
+            total: 1
+           }
+         }         
+
 
 ### api/products?category=1&vendor=8&page=1 []
   
@@ -522,47 +604,546 @@ Method: POST
             data: [
                 {
                 
-                addon_groups: []
-                attribute_term_id: null
-                categories: [{
+                addon_groups: [{
+                addon_choices:[
+                {
+                created_at: "2021-03-04T07:35:52.000000Z"
                 id: 1
-                mediaurls: {images: [{
-                default: "https://admin.goinstants.co.za/storage/130/goi1.png"
-                thumb: "https://admin.goinstants.co.za/storage/130/conversions/goi1-thumb.jpg"
-                }]},
-                meta: {scope: "ecommerce"}
-                parent_id: null
-                slug: "lite-food"
-                sort_order: 1
-                title: "lite food"
-                title_translations: {en: "lite food"}
+                price: 11
+                product_addon_group_id: 1
+                title: "Apple Pie"
+                updated_at: "2021-03-04T07:35:52.000000Z"
+                }
+                ],
                 
+                
+                id: 1
+                max_choices: 200
+                min_choices: 1
+                product_id: 2
+                title: "Dessert "
                 }],
-                created_at: "2021-03-04T06:56:18.000000Z"
+                
+                
+                attribute_term_id: null
+                created_at: "2021-02-10T18:19:25.000000Z"
                 detail: "empty_detail"
                 favourite_count: 0
-                id: 5
+                id: 2
                 is_favourite: false
-                mediaurls: {images: [{default: "https://admin.goinstants.co.za/storage/237/1614840937113.jpeg"}]}
-                meta: {food_type: "veg"}
+                mediaurls: {images: [{default: "https://admin.goinstants.co.za/storage/241/1612981247636.jpeg"}]}
+                meta: {food_type: "veg_non", "": ""}
                 owner: "vendor"
                 parent_id: null
-                price: 29.9
+                price: 107
                 ratings: 0
                 ratings_count: 0
-                title: "Street wise 2"
-                updated_at: "2021-03-04T07:16:31.000000Z"
+                title: "Mcfeast"
+                updated_at: "2021-03-04T07:35:52.000000Z",
+                
+                
                 vendor_products: [{
-                id: 5
-                price: 29.9
-                product_id: 5
+                id: 2
+                price: 107
+                product_id: 2
                 sale_price: null
                 sale_price_from: null
                 sale_price_to: null
-                sells_count: 40
+                sells_count: 17
                 stock_low_threshold: 0
-                stock_quantity: 30
-                vendor: {
+                stock_quantity: 107
+                vendor: {id: 3, name: "McDonald's", tagline: "", details: "", meta: [],…}
+                vendor_id: 3
+                }]
+                },
+                
+                
+                links: {
+                    first: "http://admin.goinstants.co.za/api/products?page=1"
+                    last: "http://admin.goinstants.co.za/api/products?page=1"
+                    next: null
+                    prev: null
+                },
+                
+                
+                
+                meta: {
+                    current_page: 1
+                    from: 1
+                    last_page: 1
+                    path: "http://admin.goinstants.co.za/api/products"
+                    per_page: 15
+                    to: 2
+                    total: 2
+                    }
+                ]}
+         }
+    
+    
+    
+### api/payment/methods [GET]
+  
+    API :api/payment/methods
+    Method: GET
+
+
++ Request HEADER (application/json)
+
+        {
+           Authorization: Bearer eysdf
+
+        }
+
++ Response 201 (application/json)
+
+  
+    + Body
+         {
+         
+            [
+            {id: 1, slug: "cod", title: "Cash On Delivery", title_translations: {en: "Cash On Delivery"},…},…]
+                0: {id: 1, slug: "cod", title: "Cash On Delivery", title_translations: {en: "Cash On Delivery"},…}
+                enabled: 1
+                id: 1
+                meta: null
+                slug: "cod"
+                title: "Cash On Delivery"
+                title_translations: {en: "Cash On Delivery"}
+                type: "postpaid"
+                1: {id: 2, slug: "card-payment", title: "debit card", title_translations: {en: "debit card"},…}
+                enabled: 1
+                id: 2
+                meta: "\"meta\": {\n  \"total\": 2,\n  \"skipped\": 0,\n  \"perPage\": 50,\n  \"page\": 1,\n  \"pageCount\": 1\n}"
+                slug: "card-payment"
+                title: "debit card"
+                title_translations: {en: "debit card"}
+                type: "prepaid"
+                }]
+         }
+         
+         
+    
+### api/user/push-notification [POST]
+  
+    API :api/user/push-notification
+    Method: POST
+
+
++ Request HEADER (application/json)
+
+        {
+           Authorization: Bearer eysdf
+
+        }
+        
++ Request Payload
+                
+                {
+                
+                role: "vendor"
+                user_id: "247"
+                
+                }
+
++ Response 201 (application/json)
+
+  
+    + Body
+         {
+         }
+    
+    
+### user/wallet/balance [POST]
+  
+    API :'user/wallet/balance
+    Method: POST
+
+
++ Request HEADER (application/json)
+
+        {
+           Authorization: Bearer eysdf
+
+        }
+        
+
+
++ Response 201 (application/json)
+
+  
+    + Body
+         {
+         data:{
+           balance:0
+         }
+         
+}
+
+### user/wallet/add/balance [POST]
+  
+    API :user/wallet/add/balance
+    Method: POST
+
+
++ Request HEADER (application/json)
+
+        {
+           Authorization: Bearer eysdf
+
+        }
+        
++ Request Query{
+
+        balance:0
+}
+
+
+### user/wallet/update/balance [POST]
+  
+    API :user/wallet/add/balance
+    Method: POST
+
+
++ Request HEADER (application/json)
+
+        {
+           Authorization: Bearer eysdf
+
+        }
+        
++ Request Query{
+
+        balance:0
+}
+        
+
+
++ Response 201 (application/json)
+
+  
+    + Body
+         {
+         data:{
+           balance:0
+         }
+         
+}
+
+
+
+
+### api/categories?pagination=0&parent=1&scope=ecommerce [GET]
+  
+    API :api/categories?pagination=0&parent=1&scope=ecommerce
+    Method: GET
+
+
++ Request HEADER (application/json)
+
+        {
+           Authorization: Bearer eysdf
+
+        }
+        
++ Request Query{
+
+        pagination: 0
+        parent: 1
+        scope: ecommerce
+}
+        
+
+
++ Response 201 (application/json)
+
+  
+    + Body
+         {
+         [{
+         id: 1
+        mediaurls: {images: [{default: "https://admin.goinstants.co.za/storage/130/goi1.png",…}]}
+        meta: {scope: "ecommerce"}
+        parent_id: null
+        slug: "lite-food"
+        sort_order: 1
+        title: "lite food"
+        title_translations: {en: "lite food"}
+         
+         }]
+         
+}
+
+### coupons/check-validity?code= [GET]
+  
+    API :acoupons/check-validity?code=
+    Method: GET
+
+
++ Request HEADER (application/json)
+
+        {
+           Authorization: Bearer eysdf
+
+        }
+        
++ Request Query{
+
+        couponCode:345345
+}
+        
+
+
++ Response 201 (application/json)
+
+  
+    + Body
+          {
+           
+            id: number;
+            title: string;
+            detail: string;
+            meta: any;
+            code: string;
+            reward: number;
+            type: string;
+            expires_at: string;
+                 
+          }
+
+
+### Search [GET]
+  
+    API :aapi/vendors/list?search=hj&page=1&lat=24.909387499999998&long=67.1246249
+    Method: GET
+
+
++ Request HEADER (application/json)
+
+        {
+           Authorization: Bearer eysdf
+
+        }
+        
++ Request Query{
+
+        search: hj
+        page: 1
+        lat: 24.909387499999998
+        long: 67.1246249
+}
+        
+
+
++ Response 201 (application/json)
+
+  
+    + Body
+          {
+           
+            data: [],
+            links: {first: "http://admin.goinstants.co.za/api/vendors/list?page=1",…}
+            first: "http://admin.goinstants.co.za/api/vendors/list?page=1"
+            last: "http://admin.goinstants.co.za/api/vendors/list?page=1"
+            next: null
+            prev: null,
+            meta: {current_page: 1, from: null, last_page: 1, path: "http://admin.goinstants.co.za/api/vendors/list",…}
+            current_page: 1
+            from: null
+            last_page: 1
+            path: "http://admin.goinstants.co.za/api/vendors/list"
+            per_page: 15
+            to: null
+            total: 0
+         
+          }
+
+
+
+
+
+### getTransactions [GET]
+  
+    API :user/wallet/transactions
+    Method: GET
+
+
++ Request HEADER (application/json)
+
+        {
+           Authorization: Bearer eysdf
+
+        }
+
++ Response 201 (application/json)
+
+  
+    + Body
+         {
+         data:{
+         
+         data:{
+           id: number;
+            amount: number;
+            type: string;
+            created_at: string;
+            updated_at: string;
+            meta: any;
+         }
+        }
+}
+
+### Support [POST]
+  
+    API :api/support
+    Method: POST
+
+
++ Request HEADER (application/json)
+
+        {
+           Authorization: Bearer eysdf
+
+        }
+        
++ Request Payload
+{
+
+        email: "jkllk@jkk.com"
+        message: "jjjj"
+        mobile_number: "+923032414548"
+        name: "hjjj"
+}
+
++ Response 201 (application/json)
+
+  
+    + Body
+         {
+        
+        }
+}   
+
+
+### api/vendors/favourites/8 [POST]
+  
+    API :api/vendors/favourites/8
+    Method: POST
+
+
++ Request HEADER (application/json)
+
+        {
+           Authorization: Bearer eysdf
+
+        }
+        
++ Request Payload
+{
+
+}
+
++ Response 201 (application/json)
+
+  
+    + Body
+         {
+        
+        }
+}   
+
+### api/vendors/favourites/list [GET]
+  
+    API :api/vendors/favourites/list
+    Method: GET
+
+
++ Request HEADER (application/json)
+
+        {
+           Authorization: Bearer eysdf
+
+        }
+        
++ Request Payload
+{
+
+}
+
++ Response 201 (application/json)
+
+  
+    + Body
+         {
+        address: "486, Anton Lembede Street, Durban Central, Durban, Durban Metro"
+            area: null
+            categories: [{id: 1, slug: "lite-food", title: "lite food", title_translations: {en: "lite food"},…},…]
+            created_at: "2021-02-28T09:24:58.000000Z"
+            delivery_fee: 0
+            details: ""
+            favourite_count: 1
+            id: 8
+            is_favourite: true
+            is_verified: 1
+            latitude: -29.860632
+            longitude: 31.0166306
+            mediaurls: {images: [{default: "https://admin.goinstants.co.za/storage/236/1614840741655.jpeg"}]}
+            meta: {opening_time: "2021-03-04T06:50:03.467+02:00", closing_time: "2021-03-04T12:52:03.469+02:00"}
+            minimum_order: 0
+            name: "KFC"
+            product_categories: [{id: 1, slug: "lite-food", title: "lite food", title_translations: {en: "lite food"},…},…]
+            ratings: 0
+            ratings_count: 0
+            tagline: ""
+            updated_at: "2021-03-04T06:53:19.000000Z"
+            user: {id: 247, name: "shop", email: "manager1@demo.com", mobile_number: "+919876543212", mobile_verified: 1,…}
+            user_id: 247
+        }
+}  
+
+
+
+    
+### api/orders?page=1 [GET]
+  
+    API :/api/orders?page=1
+    Method: GET
+
+
++ Request HEADER (application/json)
+
+        {
+           Authorization: Bearer eysdf
+
+        }
++ Query Params {
+
+            page:1
+      }    
+        
+
++ Response 201 (application/json)
+
+  
+    + Body
+         {
+         
+            [
+            {
+            data: [{
+            
+                id:1,
+                address: "486, Anton Lembede Street, Durban Central, Durban, Durban Metro"
+                scheduled_on: "2021-04-12 17:32:54"
+                status: "new"
+                subtotal: 29.9
+                taxes: 2.99
+                total: 47.89
+                type: "ASAP"
+                updated_at: "2021-04-12T17:32:54.000000Z"
+                created_at: "2021-04-12T17:32:54.000000Z"
+              
+              
+               vendor: {
                 address: "486, Anton Lembede Street, Durban Central, Durban, Durban Metro"
                 area: null
                 categories: [{id: 1, slug: "lite-food", title: "lite food", title_translations: {en: "lite food"},…},…]
@@ -579,41 +1160,56 @@ Method: POST
                 meta: {opening_time: "2021-03-04T06:50:03.467+02:00", closing_time: "2021-03-04T12:52:03.469+02:00"}
                 minimum_order: 0
                 name: "KFC"
-                product_categories: [{
-                id: 1
-                mediaurls: {images: [{
-                default: "https://admin.goinstants.co.za/storage/130/goi1.png"
-                thumb: "https://admin.goinstants.co.za/storage/130/conversions/goi1-thumb.jpg"
-                
-                }]}
-                meta: {scope: "ecommerce"}
-                parent_id: null
-                slug: "lite-food"
-                sort_order: 1
-                title: "lite food"
-                title_translations: {en: "lite food"}
-                
-                },…]
+                product_categories: [{id: 1, slug: "lite-food", title: "lite food", title_translations: {en: "lite food"},…},…]
                 ratings: 0
                 ratings_count: 0
                 tagline: ""
                 updated_at: "2021-03-04T06:53:19.000000Z"
-                user: {
-                active: 1
-                created_at: "2021-02-28 09:24:58"
-                email: "manager1@demo.com"
-                id: 247
-                language: "en"
-                meta: null
-                mobile_number: "+919876543212"
-                mobile_verified: 1
-                name: "shop"
-                notification: {vendor: "a42485fe-fc6d-4dcd-a324-59f7ec487755"}
-                remember_token: null
-                updated_at: "2021-03-17 17:16:28"
-                user_id: 247
-                }
-                vendor_id: 8
-                }]
-                }
+             },
+             
+             
+             products:[{
+             
+                addon_choices: []
+                id: 74
+                order_id: 71
+                quantity: 1
+                subtotal: null
+                total: 29.9
+                vendor_product: {
+                attribute_term_id: null
+                created_at: "2021-03-04T06:56:18.000000Z"
+                detail: "empty_detail"
+                id: 5
+                meta: {food_type: "veg"}
+                owner: "vendor"
+                parent_id: null
+                price: 29.9
+                title: "Street wise 2"
+                updated_at: "2021-03-04T07:16:31.000000Z"
+                
+                },
+                vendor_product_id: null
+             
+             
+             }],
+              links: {
+                    first: "http://admin.goinstants.co.za/api/orders?page=1"
+                    last: "http://admin.goinstants.co.za/api/orders?page=1"
+                    next: null
+                    prev: null
+                    },
+                    
+                    
+                    
+                    meta: {
+                    current_page: 1
+                    from: 1
+                    last_page: 1
+                    path: "http://admin.goinstants.co.za/api/orders"
+                    per_page: 15
+                    to: 1
+                    total: 1
+                    }
+                ]
          }
